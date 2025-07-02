@@ -27,9 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     
     // Listen for navigation events to update checkout state
     const handleNavigation = () => {
-      const isCheckoutNow = window.location.search.includes('checkout=true') || 
-                           sessionStorage.getItem('showCheckout') === 'true';
-      // setIsCheckoutPage(isCheckoutNow);
+      
     };
     
     window.addEventListener('checkoutNavigation', handleNavigation);
