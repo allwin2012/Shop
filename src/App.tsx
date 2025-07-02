@@ -1,12 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import './index.css';
-import { Product, SortOption } from './types';
+import { SortOption } from './types';
 import { products, categories } from './data/products';
 import Layout from './components/Layout';
 import SearchBar from './components/SearchBar';
 import FilterSection from './components/FilterSection';
 import ProductGrid from './components/ProductGrid';
-import { useCart } from './context/CartContext';
 
 export function App() {
   // State for filtering and sorting
@@ -16,7 +15,7 @@ export function App() {
   const [isLoading, setIsLoading] = useState(true);
   
   // Access cart context
-  const cart = useCart();
+  // const cart = useCart();
 
   // Google Fonts
   useEffect(() => {

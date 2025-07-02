@@ -2,7 +2,6 @@ import React, { ReactNode, useState, useEffect } from 'react';
 import { Menu, ShoppingBag, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import Cart from './Cart';
-import { useNavigate } from '../hooks/useNavigate';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,13 +10,13 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { totalItems, setIsCartOpen } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCheckoutPage, setIsCheckoutPage] = useState(false);
+  // const [isCheckoutPage, setIsCheckoutPage] = useState(false);
   
   useEffect(() => {
     // Check if we're on the checkout page using URL search param or sessionStorage
     const isCheckout = window.location.search.includes('checkout=true') || 
                        sessionStorage.getItem('showCheckout') === 'true';
-    setIsCheckoutPage(isCheckout);
+    // setIsCheckoutPage(isCheckout);
     
     // Restore scroll position when returning from checkout
     const savedPosition = sessionStorage.getItem('scrollPosition');
@@ -30,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const handleNavigation = () => {
       const isCheckoutNow = window.location.search.includes('checkout=true') || 
                            sessionStorage.getItem('showCheckout') === 'true';
-      setIsCheckoutPage(isCheckoutNow);
+      // setIsCheckoutPage(isCheckoutNow);
     };
     
     window.addEventListener('checkoutNavigation', handleNavigation);
@@ -173,7 +172,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-gray-400 text-center">
-            <p>© {new Date().getFullYear()} ShopSpot. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Allwin. All rights reserved.</p>
           </div>
         </div>
       </footer>
